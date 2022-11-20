@@ -1,0 +1,17 @@
+<p>rxjs-learning works!</p>
+
+<div *ngIf="agentName">
+    {{agentName}}
+</div>
+<div *ngIf="orderName">
+    {{orderName}}
+</div>
+<h2>viewChildValue : {{viewChildValue}}</h2>
+
+<!-- fromEvent Operator in Angular Rxjs -->
+<button #validate (click)="rxjsEventObservable()">
+    Click for Observable
+</button>
+<!-- <a href="http://localhost:4200/test-url" #getLink (mouseover)="getEventObservable()">
+    Root Link
+</a> -->

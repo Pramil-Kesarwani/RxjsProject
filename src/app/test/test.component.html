@@ -1,0 +1,119 @@
+<div class="binding-class">
+    <p>test works!</p>
+
+    <!-- Component interaction using "Services" between non-related(no Parent - child relationships) components --> <hr>
+    <h1>Student Greeting : {{greeting}}</h1>
+
+    <!-- Component interaction using @Output Decorator for accessing the properties of parent component class from child Components --> <hr>
+    <button (click)="callParentGreet()">Greet from child Component</button>
+
+    <!-- example of Component Interaction using @ViewChild in parent component Class. --> <hr>
+    {{parentChildInteractionInChild}}
+
+    <!-- @Input Decorator using Getters and Setters for applying some logic while getting values from Parent Components --> <hr>
+    
+    {{message}}
+
+    <!-- @Input Decorator --> <hr>
+    <!-- <p *ngIf="loggedInFlag">Welcome Back!</p>
+    <p *ngIf="!loggedInFlag">Please login</p> -->
+
+    <!-- viewChild Decorator --> <hr>
+        <!-- for ViewChild we will have to use template Reference variable for pointing out the child element -->
+    <input #viewChildRefVar type="text" [(ngModel)]="viewName">
+    Welcome viewChild {{viewName}}
+
+    <!-- Two way binding using setters and getters --> <hr>
+    <input type="text" [(ngModel)]="customerName">
+    Hello {{customerName}} using Setters and getters.
+
+    <!-- Split Two way Data Binding Component Interaction --> <hr>
+        <!-- ngModelChange() directive fires whenEver ngModel got changed -->
+    <input type="text" [ngModel]="userName" (ngModelChange)="greetPramil($event)">
+    Welcome {{userName}} using split two way data binding.
+
+    <!-- Component Interaction --> <hr>
+        <!-- @input -->
+    <h2>Hello {{nameInput}}</h2>
+        <!-- @Output -->
+    <button (click)="fireEvent()">Send Event</button>
+    
+
+    <!-- Structural Directive ngFor --> <hr>
+    <h3 *ngFor="let color of colors ; index as i">
+        {{i+1}} -- {{color}}
+    </h3>
+
+    <!-- Structural Directive ngSwitch --> <hr>
+    <div [ngSwitch]="color">
+        <div *ngSwitchCase="'red'">you picked the red color</div>
+        <div *ngSwitchCase="'green'">you picked the green color</div>
+        <div *ngSwitchDefault>Pick again</div>
+    </div>
+
+    <!-- Structural Directive *ngIf --> <hr>
+        <!-- Method 1 -->
+    <h2 *ngIf="displayName ; else elseBlock">
+        Hello Pramil!
+    </h2>
+    <ng-template #elseBlock>
+        <h2>
+            Name is hidden
+        </h2>
+    </ng-template>
+        <!-- Method 2 -->
+    <div *ngIf="displayName ; then thenBlock ; else elseBlock"></div>
+    <ng-template #thenBlock>
+        <h2>Hello Pramil Again</h2>
+    </ng-template>
+    <ng-template #elseBlock>
+        <h2>Name is hidden Again</h2>
+    </ng-template>
+
+    <!-- Two way binding --> <hr>
+    <input type="text" [(ngModel)]="name">
+    {{name}}
+
+    <!-- template reference variable --> <hr>
+    <input #myInput type="text">
+    <select #mySelect name="" id="">
+        <option value="hi">hii</option>
+        <option value="bye">bye</option>
+    </select>
+    <button (click)="getLog(myInput.value,mySelect.value)">Get Log</button>
+
+    <!-- Event Binding --> <hr>
+    <button (click)="clickEvent($event)">Event Binding</button>
+    {{" it will show the event call value -- " + eventValue}}
+
+        <!-- this time instead of calling event function we are binding templates -->
+    <button (click)="greeting = 'Welcome Pramil'">Event Binding Template</button>
+    {{greeting}}
+
+    <!-- Style Binding --> <hr>
+    <h2 [style.color]="hasError ? 'red' : 'green'">
+        Style Binding
+    </h2>
+    <h2 [style.color]="highlightColor">
+        Style Binding
+    </h2>
+    <h2 [ngStyle]="titleStyles">
+        Style Binding
+    </h2>
+
+    <!-- Class Binding --> <hr>
+    <h2 [class.text-success]="true">
+        Pramil Kesarwani
+    </h2>
+    <h2 [ngClass]="['text-danger','text-special']">
+        Pramil Kesarwani
+    </h2>
+        <!-- binding as an object -->
+    <h2 [ngClass]="messageClass">
+        Pramil Kesarwani
+    </h2>
+        <!-- binding as an array -->
+    <h2 [ngClass]="messageArr">
+        Pramil Kesarwani
+    </h2>
+</div>
